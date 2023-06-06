@@ -99,7 +99,7 @@ class Login extends Component {
                   }}
                 >
                   <i
-                    class={
+                    className={
                       this.state.isShowPassword
                         ? "fas fa-eye-slash"
                         : "fas fa-eye"
@@ -128,8 +128,8 @@ class Login extends Component {
               <span className="text-other-login">Or Login with:</span>
             </div>
             <div className="col-12 social-login">
-              <i class="fab fa-facebook-square facebook"></i>
-              <i class="fab fa-twitter twitter"></i>
+              <i className="fab fa-facebook-square facebook"></i>
+              <i className="fab fa-twitter twitter"></i>
               <i className="fab fa-google-plus google"></i>
             </div>
           </div>

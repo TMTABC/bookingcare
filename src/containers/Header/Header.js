@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import * as actions from "../../store/actions";
 import Navigator from "../../components/Navigator";
 import { adminMenu } from "./menuApp";
 import "./Header.scss";
-
+import { LANGUAGE } from "../../utils";
+import { FormattedMessage } from "react-intl";
 class Header extends Component {
+  handleChageLanguage = (language) => {
+    this.props.changeLanguageAppRedux(language);
+  };
   render() {
-    const { processLogout } = this.props;
+    const { processLogout, language, userInfo } = this.props;
 
     return (
       <div className="header-container">
@@ -16,11 +19,36 @@ class Header extends Component {
         <div className="header-tabs-container">
           <Navigator menus={adminMenu} />
         </div>
-
-        {/* nút logout */}
-        <div className="btn btn-logout" onClick={processLogout}>
-          <i className="fas fa-sign-out-alt"></i>
+        <div className="languages">
+          <span className="welcome">
+            <FormattedMessage id="homeheader.welcome" />
+            {userInfo && userInfo.firstName ? userInfo.firstName : ""} !
+          </span>
+          <span
+            className={
+              language === LANGUAGE.VI ? "language-vi active" : "language-vi"
+            }
+            onClick={() => this.handleChageLanguage(LANGUAGE.VI)}
+          >
+            VN
+          </span>
+          <span
+            className={
+              language === LANGUAGE.EN ? "language-en active" : "language-en"
+            }
+            onClick={() => this.handleChageLanguage(LANGUAGE.EN)}
+          >
+            EN
+          </span>
+          <div
+            className="btn btn-logout"
+            onClick={processLogout}
+            title="Logout"
+          >
+            <i className="fas fa-sign-out-alt"></i>
+          </div>
         </div>
+        {/* nút logout */}
       </div>
     );
   }
@@ -29,12 +57,16 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    userInfo: state.user.userInfo,
+    language: state.app.language,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     processLogout: () => dispatch(actions.processLogout()),
+    changeLanguageAppRedux: (language) =>
+      dispatch(actions.changeLanguageApp(language)),
   };
 };
 
