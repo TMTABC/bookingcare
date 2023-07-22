@@ -1,9 +1,7 @@
 .doctor-detai-container{
     height: 500px;
-    border: 1px solid red;
-    margin: 0 300px;
     .intro-doctor{
-        border: 1px solid green;
+        margin: 0 300px;
         display: flex;
         .content-left{
             width: 15%;
@@ -15,7 +13,6 @@
         }
         .content-right{
             width: 85%;
-            border: 1px solid gray;
             flex-direction: column;
             padding-left: 10px;
             .up{
@@ -26,6 +23,18 @@
             .down{
                 padding-top: 5px;
             }
+        }
+    }
+    .detail-infor-doctor{
+        padding: 10px 300px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+        border-bottom:1px solid #ddd;
+        h3{
+            font-size: 17px;
+        }
+        img{
+            width: 100%;
         }
     }
 }
