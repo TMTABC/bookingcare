@@ -37,6 +37,9 @@
             "manage-speciality":"Quản lí Chuyên khoa",
             "handbook":"Cẩm nang",
             "manage-handbook":"Quản lí cẩm nang"
+        },
+        "doctor":{
+            "manage-schedule":"Quản lí kế hoạch khám bệnh"
         }
     },
     "manage-user":{
@@ -58,5 +61,11 @@
     "homepage":{
         "outstanding-doctor":"Bác sĩ nỏi bật tuần qua",
         "more-infor":"Xem thêm"
+    },
+    "manage-schedule":{
+        "title":"Quản lí kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor":"Chọn Bác Sĩ",
+        "choose-date":"Chọn Ngày",
+        "save":"Lưu thông tin"
     }
 }
